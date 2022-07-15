@@ -36,6 +36,8 @@ dependencies {
     implementation 'org.jasypt:jasypt:1.9.3'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.17.Final'
     implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.17.Final'
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
 
 
 
