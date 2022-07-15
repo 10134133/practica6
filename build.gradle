@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+    }
+}
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'org.sebastian'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName='sebastian.Main'
+
+
+apply plugin: "com.github.johnrengelman.shadow"
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'io.javalin:javalin:3.13.7'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    implementation "org.apache.velocity:velocity-engine-core:2.2"
+    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+    implementation 'com.h2database:h2:1.4.200'
+    implementation 'org.jasypt:jasypt:1.9.3'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.17.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.17.Final'
+
+
+
+}
+shadowJar{
+    baseName = 'app'
+    classifier = ''
+    archiveVersion = ''
+}
+test {
+    useJUnitPlatform()
+}
+task stage {
+    dependsOn shadowJar
+}
