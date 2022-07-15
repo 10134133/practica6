@@ -37,9 +37,9 @@ public class DBService<T> {
         String jdbcUrl = String.format("jdbc:postgresql://%s:%s/%s?sslmode=require", host, port, databaseName);
         //pasando las propiedades.
         Map<String, String> properties = new HashMap<>();
-        properties.put("javax.persistence.jdbc.url", jdbcUrl );
-        properties.put("javax.persistence.jdbc.user", userName );
-        properties.put("javax.persistence.jdbc.password", password );
+        properties.put("jakarta.persistence.jdbc.url", jdbcUrl );
+        properties.put("jakarta.persistence.jdbc.user", userName );
+        properties.put("jakarta.persistence.jdbc.password", password );
         //
         return Persistence.createEntityManagerFactory("Heroku", properties);
     }
