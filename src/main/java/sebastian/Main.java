@@ -21,7 +21,10 @@ public class Main {
             Conexion = args[0];
             System.out.println("Modo de Operacion: "+Conexion);
         }
-        BootStrapServices.startDB();
+        if(Conexion.isEmpty()){
+            BootStrapServices.startDB();
+        }
+
         Javalin app = Javalin.create().start(7000);
         JavalinRenderer.register(JavalinVelocity.INSTANCE, ".vm");
         //Todas las rutas controladoras;
