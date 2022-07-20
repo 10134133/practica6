@@ -16,6 +16,8 @@ public class Main {
     private static String Conexion = "";
 
     public static void main(String[] args){
+        Javalin app = Javalin.create().start(getHerokuAssignedPort());
+        JavalinRenderer.register(JavalinVelocity.INSTANCE, ".vm");
         if(args.length >= 1){
             Conexion = args[0];
             System.out.println("Modo de Operacion: "+Conexion);
@@ -23,9 +25,6 @@ public class Main {
         if(Conexion.isEmpty()){
             BootStrapServices.startDB();
         }
-
-        Javalin app = Javalin.create().start(getHerokuAssignedPort());
-        JavalinRenderer.register(JavalinVelocity.INSTANCE, ".vm");
         //Todas las rutas controladoras;
         new Registrar(app).AplicarRutas();
         new UsuarioC(app).AplicarRutas();
@@ -44,7 +43,7 @@ public class Main {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 7000; //Retorna el puerto por defecto en caso de no estar en Heroku.
+        return 7005; //Retorna el puerto por defecto en caso de no estar en Heroku.
     }
 
 }
