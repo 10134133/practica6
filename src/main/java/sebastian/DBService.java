@@ -11,15 +11,11 @@ public class DBService<T> {
     private static EntityManagerFactory e;
     private Class<T> clase;
 
-    public DBService(Class<T> clase) {
-        if(e == null) {
-            if(Main.getConnection().equalsIgnoreCase("Heroku")){
-                e = getConfiguracionBaseDatosHeroku();
-            }else{
-                e = Persistence.createEntityManagerFactory("MiUnidadPersistencia");
-            }
+    public DBService(Class<T> clase){
+        if(e == null){
+            e = Persistence.createEntityManagerFactory("MiUnidadPersistencia");
+            this.clase = clase;
         }
-        this.clase = clase;
     }
 
     private EntityManagerFactory getConfiguracionBaseDatosHeroku(){
