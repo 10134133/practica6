@@ -4,9 +4,12 @@ import sebastian.Controladoras.AdministrarProdC;
 import sebastian.Controladoras.CarritoC;
 import sebastian.Controladoras.Registrar;
 import sebastian.Controladoras.UsuarioC;
+import org.jasypt.util.text.AES256TextEncryptor;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.JavalinRenderer;
 import io.javalin.plugin.rendering.template.JavalinVelocity;
+import java.io.IOException;
+import java.util.*;
 
 
 /* Sebastián Sanchez 20180032 | 10134133
@@ -18,13 +21,13 @@ public class Main {
     public static void main(String[] args){
         Javalin app = Javalin.create().start(getHerokuAssignedPort());
         JavalinRenderer.register(JavalinVelocity.INSTANCE, ".vm");
-        if(args.length >= 1){
+        /*if(args.length >= 1){
             Conexion = args[0];
             System.out.println("Modo de Operacion: "+Conexion);
         }
         if(Conexion.isEmpty()){
             BootStrapServices.startDB();
-        }
+        }*/
         //Todas las rutas controladoras;
         new Registrar(app).AplicarRutas();
         new UsuarioC(app).AplicarRutas();
