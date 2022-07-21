@@ -33,10 +33,10 @@
         <class>sebastian.Entidades.ProdComprado</class>
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-87-179-4.compute-1.amazonaws.com:5432/d4s6462uln1sjf?sslmode=require" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-44-206-11-200.compute-1.amazonaws.com:5432/ddqqdmrcmfdgk1?sslmode=require" />
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.user" value="gdopdetcvtvldn" />
-            <property name="javax.persistence.jdbc.password" value="843e2ecf73edbdc0c7cd58c209d4cdb60d7c78d3531ef420be3fb7f5b82ad177" />
+            <property name="javax.persistence.jdbc.user" value="icuonjutwhqtzf" />
+            <property name="javax.persistence.jdbc.password" value="fd7471d084dd302fe743672a9ea04137181d670dd6dd4663bc69bdf6e1ebdd55" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <!-- Indica como será la generación de las tablas en el motor-->
